@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "weather-app": "apps/weather-app",
-    "weather-app-e2e": "apps/weather-app-e2e"
+    "weather-app-e2e": "apps/weather-app-e2e",
+    "weather-lib": "libs/weather-lib"
   }
 }
