@@ -4,6 +4,10 @@ import { HeaderComponent } from './containers/header/header.component';
 import { FooterComponent } from './containers/footer/footer.component';
 import { MainComponent } from './main.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ContentComponent } from './containers/content/content.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 
 export const routes: Routes = [
   {
@@ -13,7 +17,18 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [MainComponent, HeaderComponent, FooterComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  declarations: [
+    MainComponent,
+    HeaderComponent,
+    FooterComponent,
+    ContentComponent,
+  ],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
+    RouterModule.forChild(routes),
+  ],
 })
 export class OpenWeatherModule {}
