@@ -8,6 +8,11 @@ import { ContentComponent } from './containers/content/content.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { EffectsModule } from '@ngrx/effects';
+import { OpenWeatherEffects } from './+store/effects/open-weather.effects';
+import { StoreModule } from '@ngrx/store';
+import { openWeatherReducer } from './+store/reducers/open-weather.reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 export const routes: Routes = [
   {
@@ -29,6 +34,14 @@ export const routes: Routes = [
     MatFormFieldModule,
     MatIconModule,
     RouterModule.forChild(routes),
+    StoreModule.forRoot({
+      weather: openWeatherReducer,
+    }),
+    EffectsModule.forRoot([OpenWeatherEffects]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: true,
+    }),
   ],
 })
 export class OpenWeatherModule {}

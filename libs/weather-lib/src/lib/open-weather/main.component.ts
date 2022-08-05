@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import {
+  GetCurrentWeatherData,
+  GetGeoLocation,
+} from './+store/actions/open-weather.actions';
+import { AppState } from './+store/app.state';
 
 @Component({
   selector: 'ngrx-weather-update-main',
@@ -6,7 +12,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  constructor() {}
+  constructor(private store: Store<AppState>) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store.dispatch(GetCurrentWeatherData());
+    this.store.dispatch(GetGeoLocation());
+  }
 }
