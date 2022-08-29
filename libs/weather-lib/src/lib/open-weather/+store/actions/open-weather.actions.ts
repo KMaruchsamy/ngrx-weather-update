@@ -1,6 +1,9 @@
 import { props, createAction } from '@ngrx/store';
 
-export const GetGeoLocation = createAction('[Get] Geo Location');
+export const GetGeoLocation = createAction(
+  '[Get] Geo Location',
+  props<{ city: string }>()
+);
 export const GetGeoLocationSuccess = createAction(
   '[Get] Geo Location Success',
   props<{ geo: any }>()

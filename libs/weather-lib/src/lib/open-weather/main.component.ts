@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import {
-  GetCurrentWeatherData,
-  GetGeoLocation,
-} from './+store/actions/open-weather.actions';
+import { GetCurrentWeatherData, GetGeoLocation } from './+store';
 import { AppState } from './+store/app.state';
 
 @Component({
@@ -16,6 +13,11 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(GetCurrentWeatherData());
-    this.store.dispatch(GetGeoLocation());
+  }
+
+  fetchCity(city: string) {
+    if (city) {
+      this.store.dispatch(GetGeoLocation({ city }));
+    }
   }
 }

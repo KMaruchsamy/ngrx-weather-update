@@ -2,10 +2,12 @@
   <a href="#"
     ><img src="assets/decorate-angular-cli.png" height="25" width="70"
   /></a>
-  <form role="search" action="/find" method="get">
-    <input type="text" name="q" placeholder="Weather in your city" />
-    <input type="submit" style="display: none" />
-  </form>
+  <input
+    type="text"
+    name="q"
+    placeholder="Weather in your city"
+    (blur)="getCityName($event)"
+  />
   <nav class="nav-item">
     <a href="https://openweathermap.org/guide">Guide</a> |
     <a href="https://openweathermap.org/api">API</a> |
