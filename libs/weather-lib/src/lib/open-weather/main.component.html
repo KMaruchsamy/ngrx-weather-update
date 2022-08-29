@@ -1,5 +1,7 @@
 <div class="open-weather">
-  <ngrx-weather-update-header></ngrx-weather-update-header>
+  <ngrx-weather-update-header
+    (fetchCity)="fetchCity($event)"
+  ></ngrx-weather-update-header>
   <ngrx-weather-update-content></ngrx-weather-update-content>
   <ngrx-weather-update-footer></ngrx-weather-update-footer>
 </div>

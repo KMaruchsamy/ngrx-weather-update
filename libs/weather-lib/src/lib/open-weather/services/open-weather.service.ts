@@ -23,9 +23,9 @@ export class OpenWeatherService {
     return this.http.get(url);
   }
 
-  getGeolocation() {
+  getGeolocation(city: string) {
     const geo = '/geo/1.0/direct?';
-    const location = 'q=bangalore&limit=1&appid=';
+    const location = 'q=' + city + '&limit=1&appid=';
     return this.http.get(this.domain + geo + location + this.appId);
   }
 }

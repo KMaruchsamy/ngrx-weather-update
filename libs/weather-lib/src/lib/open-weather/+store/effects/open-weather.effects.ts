@@ -36,8 +36,8 @@ export class OpenWeatherEffects {
   GetGeoLocation$ = createEffect(() =>
     this.actions$.pipe(
       ofType(GetGeoLocation),
-      switchMap(() =>
-        this.openWeatherService.getGeolocation().pipe(
+      switchMap(({ city }) =>
+        this.openWeatherService.getGeolocation(city).pipe(
           map((response) => GetGeoLocationSuccess({ geo: response })),
           catchError(() => of(GetGeoLocationFail()))
         )
